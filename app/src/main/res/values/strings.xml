@@ -6,4 +6,5 @@
     <string name="ideaTitle">Title</string>
     <string name="ideaOwner">Owner</string>
     <string name="ideaDescription">Description</string>
+    <string name="title_activity_idea_detail">IdeaDetailActivity</string>
 </resources>

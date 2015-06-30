@@ -5,7 +5,6 @@ import android.database.DataSetObserver;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -28,7 +27,7 @@ public class IdeaListAdapter implements ListAdapter {
 
     @Override
     public boolean isEnabled(int position) {
-        return false;
+        return true;
     }
 
     @Override
@@ -58,7 +57,7 @@ public class IdeaListAdapter implements ListAdapter {
 
     @Override
     public boolean hasStableIds() {
-        return false;
+        return true;
     }
 
     @Override
@@ -88,6 +87,6 @@ public class IdeaListAdapter implements ListAdapter {
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return ideaList.size() == 0;
     }
 }
