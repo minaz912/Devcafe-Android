@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +19,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class IdeaDetailActivity extends AppCompatActivity {
 
@@ -122,6 +125,10 @@ public class IdeaDetailActivity extends AppCompatActivity {
             ideaTitle.setText(result.title);
             ideaDescription.setText(result.description);
             ideaOwner.setText("by: " + result.owner.username);
+            final ListView ideasListView = (ListView) findViewById(R.id.commentListView);
+            ArrayList<Comment> commentList = new ArrayList<>(Arrays.asList(result.comments));
+            CommentListAdapter adapter = new CommentListAdapter(IdeaDetailActivity.this, commentList);
+            ideasListView.setAdapter(adapter);
             progressDialog.dismiss();
             super.onPostExecute(result);
         }

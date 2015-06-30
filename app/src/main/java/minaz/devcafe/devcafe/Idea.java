@@ -11,4 +11,6 @@ public class Idea {
     public String title;
     @SerializedName("description")
     public String description;
+    @SerializedName("comments")
+    public Comment[] comments;
 }
