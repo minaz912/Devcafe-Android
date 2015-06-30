@@ -6,7 +6,7 @@ public class Idea {
     @SerializedName("id")
     public int id;
     @SerializedName("owner")
-    public String owner;
+    public User owner;
     @SerializedName("title")
     public String title;
     @SerializedName("description")

@@ -71,7 +71,7 @@ public class IdeaListAdapter implements ListAdapter {
         TextView description = (TextView) convertView.findViewById(R.id.list_item_ideaDescription_textview);
         description.setText(getItem(position).description);
         TextView owner = (TextView) convertView.findViewById(R.id.list_item_ideaOwner_textview);
-        owner.setText("by: " + getItem(position).owner);
+        owner.setText("by: " + getItem(position).owner.username);
 
         return convertView;
     }
