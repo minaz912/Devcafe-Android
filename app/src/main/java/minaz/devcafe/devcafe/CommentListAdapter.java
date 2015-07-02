@@ -4,8 +4,11 @@ import android.app.Activity;
 import android.database.DataSetObserver;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -70,6 +73,7 @@ public class CommentListAdapter implements ListAdapter {
         }
         TextView commentTimestamp = (TextView) convertView.findViewById(R.id.comment_timestamp);
         TextView commentOwner = (TextView) convertView.findViewById(R.id.comment_owner);
+        ImageView commentOwnerPic = (ImageView) convertView.findViewById(R.id.comment_owner_pic);
         TextView commentText = (TextView) convertView.findViewById(R.id.comment_text);
 
 //        Time time = comment.timestamp.getTime();
@@ -80,6 +84,9 @@ public class CommentListAdapter implements ListAdapter {
         commentTimestamp.setText(formatDateTime(comment.timestamp));
         commentOwner.setText("by: " + comment.owner.username);
         commentText.setText(comment.text);
+        if (comment.owner.picture != null) {
+            Picasso.with(activity).load(comment.owner.picture).into(commentOwnerPic);
+        }
 
         return convertView;
     }
@@ -91,7 +98,7 @@ public class CommentListAdapter implements ListAdapter {
 
     @Override
     public int getItemViewType(int position) {
-        return 0;
+        return 1;
     }
 
     @Override

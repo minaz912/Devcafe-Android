@@ -1,41 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="#3599b7ad"
     android:gravity="center_vertical"
     android:minHeight="?android:attr/listPreferredItemHeight"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
-    <RelativeLayout
-        android:id="@+id/comment_owner_timestamp_LinLayout"
-        android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/comment_owner_pic"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:contentDescription="@string/imageView_content_description"
+        android:cropToPadding="true"
+        android:scaleType="fitXY"
+        android:src="@android:drawable/sym_def_app_icon" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="fill_parent"
+        android:background="#ffffff"
+        android:padding="2dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/dim_foreground_disabled_material_dark"
-        android:baselineAligned="true">
+        android:divider="@drawable/abc_list_divider_mtrl_alpha"
+        android:gravity="center_vertical"
+        android:labelFor="@id/commentListView"
+        android:minHeight="?android:attr/listPreferredItemHeight"
+        android:orientation="vertical"
+        android:theme="@style/Base.Widget.AppCompat.ListView">
 
-        <TextView
-            android:id="@+id/comment_timestamp"
+        <RelativeLayout
+            android:id="@+id/comment_owner_timestamp_LinLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/abc_list_item_padding_horizontal_material"
-            android:text="@string/timestamp" />
+            android:baselineAligned="true">
+
+            <TextView
+                android:id="@+id/comment_timestamp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/abc_list_item_padding_horizontal_material"
+                android:text="@string/timestamp"
+                android:textAppearance="?android:textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/comment_owner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:gravity="right"
+                android:padding="@dimen/abc_list_item_padding_horizontal_material"
+                android:text="@string/ideaOwner"
+                android:textAppearance="?android:textAppearanceSmall" />
+
+        </RelativeLayout>
 
         <TextView
-            android:id="@+id/comment_owner"
+            android:id="@+id/comment_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:gravity="right"
-            android:padding="@dimen/abc_list_item_padding_horizontal_material"
-            android:text="@string/ideaOwner"
-            android:textAppearance="?android:textAppearanceSmall" />
+            android:text="@string/description"
+            android:textAppearance="?android:textAppearanceMedium" />
 
-    </RelativeLayout>
-
-    <TextView
-        android:id="@+id/comment_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    </LinearLayout>
 
 </LinearLayout>

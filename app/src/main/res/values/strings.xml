@@ -8,4 +8,8 @@
     <string name="ideaDescription">Description</string>
     <string name="title_activity_idea_detail">IdeaDetailActivity</string>
     <string name="timestamp">timestamp</string>
+    <string name="description">description</string>
+    <string name="imageView_content_description">Profile picture of comment owner</string>
+    <string name="comments">Comments</string>
+    <string name="action_login">Login</string>
 </resources>
