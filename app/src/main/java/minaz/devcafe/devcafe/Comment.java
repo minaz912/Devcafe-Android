@@ -1,5 +1,6 @@
 package minaz.devcafe.devcafe;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -12,6 +13,7 @@ public class Comment {
     public User owner;
     @SerializedName("timestamp")
     public String timestamp;
+    @Expose
     @SerializedName("text")
     public String text;
 }

@@ -10,4 +10,6 @@ public class User {
     public int id;
     @SerializedName("username")
     public String username;
+    @SerializedName("picture")
+    public String picture;
 }

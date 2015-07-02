@@ -27,6 +27,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     public static final String BASE_URL = "http://178.62.223.183/";
+    public static String AUTH_TOKEN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,19 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+//    @Override
+//    public boolean onPrepareOptionsMenu(Menu menu) {
+//        super.onPrepareOptionsMenu(menu);
+//        if (!isLoggedIn()) {
+//            menu.findItem(R.id.action_login).setVisible(false);
+//        }
+//        return true;
+//    }
+
+    private boolean isLoggedIn() {
+        return AUTH_TOKEN.length() != 0;
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -66,6 +80,11 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }
+
+        if (id == R.id.action_login) {
+            Intent loginIntent = new Intent(this, LoginActivity.class);
+            startActivity(loginIntent);
         }
 
         return super.onOptionsItemSelected(item);
