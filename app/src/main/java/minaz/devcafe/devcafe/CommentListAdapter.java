@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -95,7 +96,19 @@ public class CommentListAdapter extends ArrayAdapter<Comment> {
         holder.commentOwner.setText("by: " + comment.owner.username);
         holder.commentText.setText(comment.text);
         if (comment.owner.picture != null) {
-            Picasso.with(this.context).load(comment.owner.picture).into(holder.commentOwnerPic);
+            final ViewHolder finalHolder = holder;
+            Picasso.with(this.context).load(comment.owner.picture).into(holder.commentOwnerPic,
+                    new Callback() {
+                        @Override
+                        public void onSuccess() {
+                            notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onError() {
+                            finalHolder.commentOwnerPic.setImageResource(R.mipmap.user_default);
+                        }
+                    });
         }
 
         return row;

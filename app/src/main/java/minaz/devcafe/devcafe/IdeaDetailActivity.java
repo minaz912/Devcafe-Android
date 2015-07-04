@@ -258,8 +258,8 @@ public class IdeaDetailActivity extends AppCompatActivity {
             adapter.notifyDataSetChanged();
             //TODO: comment owner pic not set when posting a new comment
             postCommentTextView.setText("");
-            postCommentTextView.clearFocus();
             progressDialog.dismiss();
+            postCommentTextView.clearFocus();
             super.onPostExecute(result);
         }
     }
